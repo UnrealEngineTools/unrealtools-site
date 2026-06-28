@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unreal Tools — Native tools for Unreal Engine developers</title>
+<meta name="description" content="Unreal Tools makes focused, native tooling for Unreal Engine developers. First up: Conduit, a native in-engine MCP server that builds games by prompting an AI agent.">
+<meta property="og:title" content="Unreal Tools — Native tools for Unreal Engine developers">
+<meta property="og:description" content="Focused, native tooling for Unreal Engine developers. Starting with Conduit.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#09090C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin:0; background:#09090C; color:#F2F2F5; font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  ::selection { background:rgba(10,132,255,0.35); }
+  a { color:inherit; text-decoration:none; }
+  :focus-visible { outline:2px solid #4DB2FF; outline-offset:3px; border-radius:4px; }
+  @keyframes acGlow { 0%,100%{opacity:.45} 50%{opacity:.85} }
+  @keyframes acReveal { from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none} }
+  .acReveal { animation:acReveal both; animation-timeline:view(); animation-range:entry 2% cover 30%; }
+  .nav-link:hover { color:#F2F2F5; background:rgba(255,255,255,0.04); }
+  .foot-link:hover { color:#F2F2F5; }
+  .tool-card { transition:border-color .2s, background .2s, transform .2s; }
+  .tool-card:hover { border-color:rgba(10,132,255,0.45); background:rgba(10,132,255,0.05); transform:translateY(-2px); }
+  .btn-primary:hover { background:#2B95FF; }
+  .btn-ghost:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation-duration:.001ms!important; animation-iteration-count:1!important; animation-delay:0ms!important; transition-duration:.001ms!important}
+    .acReveal{animation:none!important; opacity:1!important; transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div style="background:#09090C;overflow-x:hidden">
+
+  <!-- background glow -->
+  <div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(900px 520px at 80% -10%, rgba(10,132,255,0.15), transparent 60%), radial-gradient(700px 600px at 4% 6%, rgba(80,180,255,0.06), transparent 55%)"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(9,9,12,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
+    <nav aria-label="Primary" style="max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-0.02em;font-size:17px">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="2.5" y="2.5" width="17" height="17" rx="4.5" fill="none" stroke="#0A84FF" stroke-width="1.6"/><path d="M6.5 8.5h9M6.5 11h9M6.5 13.5h5" stroke="#4DB2FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Unreal Tools
+      </a>
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+        <a class="nav-link" href="#tools" style="padding:8px 12px;font-size:14px;color:#A6A6B2;border-radius:8px">Tools</a>
+        <a class="nav-link" href="#approach" style="padding:8px 12px;font-size:14px;color:#A6A6B2;border-radius:8px">Approach</a>
+        <a class="btn-primary" href="https://conduit.unrealtools.com" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;font-size:14px;font-weight:600;color:#fff;background:#0A84FF;border-radius:9px;box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 24px -8px rgba(10,132,255,0.7)">Explore Conduit</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" style="position:relative;z-index:1">
+
+    <!-- ===================== HERO ===================== -->
+    <section style="max-width:1100px;margin:0 auto;padding:clamp(56px,9vw,120px) 24px clamp(36px,5vw,64px);text-align:center">
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:6px 13px;border:1px solid rgba(255,255,255,0.1);border-radius:999px;font-size:12.5px;color:#B7B7C4;font-family:'JetBrains Mono',monospace;margin-bottom:26px">
+        <span style="width:7px;height:7px;border-radius:999px;background:#4ADE80;box-shadow:0 0 10px #4ADE80;animation:acGlow 2.4s ease-in-out infinite"></span>
+        Native tooling for Unreal Engine developers
+      </div>
+      <h1 style="font-size:clamp(2.5rem,6vw,4.2rem);line-height:1.02;letter-spacing:-0.038em;font-weight:800;margin:0 auto 22px;max-width:880px;text-wrap:balance">
+        Sharp, native tools for building in Unreal Engine.
+      </h1>
+      <p style="font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;color:#A6A6B2;max-width:620px;margin:0 auto 34px">
+        Unreal Tools makes focused, developer-first tooling for Unreal Engine, each tool does one job and does it well, runs natively in the editor, and respects your workflow. First up: Conduit.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center">
+        <a class="btn-primary" href="https://conduit.unrealtools.com" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-size:15px;font-weight:600;color:#fff;background:#0A84FF;border-radius:11px;box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 12px 34px -10px rgba(10,132,255,0.8)">
+          Explore Conduit
+          <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><path d="M3 7.5h8M7.5 4l3.5 3.5L7.5 11" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-ghost" href="#tools" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-size:15px;font-weight:600;color:#E6E6EC;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:11px">What we're building</a>
+      </div>
+    </section>
+
+    <!-- ===================== TOOLS ===================== -->
+    <section id="tools" class="acReveal" style="max-width:1100px;margin:0 auto;padding:clamp(40px,6vw,72px) 24px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:28px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#4DB2FF">// the toolbox</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#6B6B76">1 available · more in the works</div>
+      </div>
+
+      <!-- Featured: Conduit -->
+      <a href="https://conduit.unrealtools.com" class="tool-card" style="display:block;border:1px solid rgba(10,132,255,0.35);border-radius:20px;padding:clamp(28px,3.5vw,44px);background:linear-gradient(160deg, rgba(10,132,255,0.09), rgba(255,255,255,0.008));margin-bottom:16px">
+        <div style="display:grid;gap:clamp(24px,4vw,48px);grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));align-items:center">
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(10,132,255,0.12);border:1px solid rgba(10,132,255,0.4)">
+                <svg width="24" height="24" viewBox="0 0 22 22" aria-hidden="true"><rect x="2.5" y="2.5" width="17" height="17" rx="4.5" fill="none" stroke="#4DB2FF" stroke-width="1.6"/><path d="M7 11h8M11 7v8" stroke="#4DB2FF" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <div>
+                <div style="font-size:22px;font-weight:700;letter-spacing:-0.02em">Conduit</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7CC4FF">in-engine MCP server</div>
+              </div>
+            </div>
+            <p style="color:#C4C4CE;font-size:15.5px;line-height:1.6;margin:0 0 18px;max-width:460px">
+              A native Model Context Protocol server that lives inside the Unreal Editor, so any MCP-compatible AI agent can design, build, and verify your game from a prompt. No sidecar, 65 typed tools, safe by default.
+            </p>
+            <span style="display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:600;color:#7CC4FF">
+              Explore Conduit
+              <svg width="14" height="14" viewBox="0 0 15 15" aria-hidden="true"><path d="M3 7.5h8M7.5 4l3.5 3.5L7.5 11" stroke="#7CC4FF" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-content:flex-start">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9EC9F5;background:rgba(10,132,255,0.08);border:1px solid rgba(10,132,255,0.28);padding:5px 11px;border-radius:8px">UE 5.7 / 5.8</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9EC9F5;background:rgba(10,132,255,0.08);border:1px solid rgba(10,132,255,0.28);padding:5px 11px;border-radius:8px">65 typed tools</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9EC9F5;background:rgba(10,132,255,0.08);border:1px solid rgba(10,132,255,0.28);padding:5px 11px;border-radius:8px">4 agentic skills</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9EC9F5;background:rgba(10,132,255,0.08);border:1px solid rgba(10,132,255,0.28);padding:5px 11px;border-radius:8px">native, no sidecar</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#9EC9F5;background:rgba(10,132,255,0.08);border:1px solid rgba(10,132,255,0.28);padding:5px 11px;border-radius:8px">safe by default</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Coming soon row -->
+      <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))">
+        <div style="border:1px dashed rgba(255,255,255,0.12);border-radius:16px;padding:26px;background:rgba(255,255,255,0.012)">
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6B6B76;border:1px solid rgba(255,255,255,0.1);padding:4px 9px;border-radius:7px;margin-bottom:16px">
+            <span style="width:6px;height:6px;border-radius:999px;background:#6B6B76"></span> Coming soon
+          </div>
+          <h3 style="font-size:17px;font-weight:650;margin:0 0 7px;color:#D6D6DE">More tools in the works</h3>
+          <p style="color:#8A8A96;font-size:14px;line-height:1.55;margin:0">Focused utilities for Unreal Engine developers, built with the same care as Conduit. Announced here as they land.</p>
+        </div>
+        <div style="border:1px dashed rgba(255,255,255,0.1);border-radius:16px;padding:26px;background:rgba(255,255,255,0.008);display:flex;align-items:center;justify-content:center;text-align:center;min-height:140px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#54545E">// your next favorite tool</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APPROACH ===================== -->
+    <section id="approach" class="acReveal" style="max-width:1100px;margin:0 auto;padding:clamp(44px,6vw,84px) 24px">
+      <div style="max-width:640px;margin:0 0 44px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#4DB2FF;margin-bottom:14px">// the approach</div>
+        <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.1;letter-spacing:-0.03em;font-weight:700;margin:0 0 14px;text-wrap:balance">How these tools are built.</h2>
+        <p style="color:#A6A6B2;font-size:16px;line-height:1.6;margin:0">A small set of principles behind everything here.</p>
+      </div>
+      <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))">
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;background:rgba(255,255,255,0.015)"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4DB2FF;margin-bottom:14px">01</div><h3 style="font-size:16.5px;font-weight:650;margin:0 0 8px;letter-spacing:-0.01em">Native</h3><p style="color:#9A9AA6;font-size:14px;line-height:1.55;margin:0">Runs inside the editor, no sidecars or bridge processes to babysit. Fewer moving parts, fewer surprises.</p></div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;background:rgba(255,255,255,0.015)"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4DB2FF;margin-bottom:14px">02</div><h3 style="font-size:16.5px;font-weight:650;margin:0 0 8px;letter-spacing:-0.01em">Focused</h3><p style="color:#9A9AA6;font-size:14px;line-height:1.55;margin:0">Each tool solves one real problem properly, instead of one tool trying to do everything.</p></div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;background:rgba(255,255,255,0.015)"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4DB2FF;margin-bottom:14px">03</div><h3 style="font-size:16.5px;font-weight:650;margin:0 0 8px;letter-spacing:-0.01em">Developer-first</h3><p style="color:#9A9AA6;font-size:14px;line-height:1.55;margin:0">Safe defaults, predictable behavior, and respect for your project, your undo history, and your time.</p></div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;background:rgba(255,255,255,0.015)"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4DB2FF;margin-bottom:14px">04</div><h3 style="font-size:16.5px;font-weight:650;margin:0 0 8px;letter-spacing:-0.01em">Honest</h3><p style="color:#9A9AA6;font-size:14px;line-height:1.55;margin:0">Clear about what each tool is and isn't, what's verified, and what's still on the roadmap.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA STRIP ===================== -->
+    <section class="acReveal" style="max-width:1100px;margin:0 auto;padding:clamp(20px,4vw,40px) 24px clamp(48px,7vw,90px)">
+      <div style="border:1px solid rgba(10,132,255,0.35);border-radius:20px;padding:clamp(32px,5vw,56px);background:linear-gradient(160deg, rgba(10,132,255,0.1), rgba(255,255,255,0.008));text-align:center">
+        <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.1;letter-spacing:-0.03em;font-weight:700;margin:0 0 14px;text-wrap:balance">Start with Conduit.</h2>
+        <p style="color:#A6A6B2;font-size:15.5px;line-height:1.6;margin:0 auto 26px;max-width:520px">Build games in Unreal Engine by prompting an agent. Native, typed, and safe by default.</p>
+        <a class="btn-primary" href="https://conduit.unrealtools.com" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-size:15px;font-weight:600;color:#fff;background:#0A84FF;border-radius:11px;box-shadow:0 1px 0 rgba(255,255,255,0.18) inset, 0 12px 34px -10px rgba(10,132,255,0.8)">
+          Visit conduit.unrealtools.com
+          <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><path d="M3 7.5h8M7.5 4l3.5 3.5L7.5 11" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.07);padding:48px 24px 40px">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:36px">
+        <div style="max-width:300px">
+          <a href="#top" style="display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-0.02em;font-size:17px;margin-bottom:12px">
+            <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="2.5" y="2.5" width="17" height="17" rx="4.5" fill="none" stroke="#0A84FF" stroke-width="1.6"/><path d="M6.5 8.5h9M6.5 11h9M6.5 13.5h5" stroke="#4DB2FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Unreal Tools
+          </a>
+          <p style="color:#7B7B86;font-size:13.5px;line-height:1.6;margin:0">Focused, native tools for Unreal Engine developers.</p>
+        </div>
+        <div style="display:flex;gap:48px;flex-wrap:wrap">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6B6B76;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em">Tools</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <a class="foot-link" href="https://conduit.unrealtools.com" style="font-size:14px;color:#A6A6B2">Conduit</a>
+              <span style="font-size:14px;color:#5E5E69">More · soon</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6B6B76;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.08em">Site</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <a class="foot-link" href="#tools" style="font-size:14px;color:#A6A6B2">Tools</a>
+              <a class="foot-link" href="#approach" style="font-size:14px;color:#A6A6B2">Approach</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.06)">
+        <p style="font-size:12px;color:#62626C;line-height:1.65;margin:0 0 16px;max-width:820px">
+          Unreal Tools is an independent maker of third-party tools for Unreal Engine developers. Unreal Engine, Unreal, and their logos are trademarks or registered trademarks of Epic Games, Inc. in the United States and elsewhere, used here only to describe compatibility. Unreal Tools and its products are not affiliated with, endorsed by, or sponsored by Epic Games.
+        </p>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+          <span style="font-size:12.5px;color:#5E5E69">© 2026 Unreal Tools</span>
+          <span style="font-size:12.5px;color:#5E5E69">Built for Unreal Engine developers.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
